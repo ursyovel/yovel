@@ -69,7 +69,7 @@
         .line-container {
             position: relative;
             margin: 20px auto;
-            width: 30%;
+            width: 60%; /* Adjust width for smaller screens */
         }
 
         .line-container hr {
@@ -91,55 +91,73 @@
         /* About Me Section */
         h3 {
             color: rgb(184, 184, 184);
+            text-align: center;
+        }
+
+        /* Experience Card Styles */
+        #experience {
+            margin-top: 20px;
+        }
+
+        #experience-cards {
+            display: flex;
+            justify-content: center; /* Center the cards horizontally */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 20px; /* Add some spacing between cards */
+            margin-top: 20px;
+        }
+
+        .experience-card {
+            background-color: #333;
+            color: #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px; /* Adjusted card size */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out;
             text-align: left;
-            padding-left: 550px;
+            box-sizing: border-box; /* Prevent padding from affecting width */
         }
 
-        /* Contact Form */
-        #contact {
-            padding: 10px;
-            width: 250px;
-            margin: 30px auto;
-            background-color: #1e2125;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        .experience-card:hover {
+            transform: scale(1.05);
         }
 
-        #contact h2 {
-            color: rgb(207, 207, 207);
-            font-size: 20px;
-        }
-
-        form input, form textarea {
-            padding: 10px;
-            margin-bottom: 10px;
+        .experience-card img {
             width: 100%;
+            height: auto;
             border-radius: 5px;
-            border: 1px solid #ccc;
         }
 
-        form textarea {
-            height: 60px;
+        .experience-card h3 {
+            margin-top: 15px;
+            font-size: 20px;
+            color: rgb(184, 184, 184);
         }
 
-        form button {
-            padding: 10px 20px;
-            background-color: #88b3d4;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .experience-card p {
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: center; /* Align the text center */
         }
 
-        form button:hover {
-            background-color: #67a1b8;
+        /* Bullet before the role text */
+        .experience-card p:before {
+            content: "• ";
+            margin-right: 10px;
         }
 
+        /* Footer Styles */
         footer {
             background-color: #1e2125;
             padding: 20px;
             color: #ccc;
             text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            margin: 0;
         }
 
         footer a {
@@ -191,6 +209,7 @@
         #social-media {
             margin-top: 30px;
             text-align: center;
+            margin-bottom: 100px; /* Ensure social media section is above footer */
         }
 
         .social-icon {
@@ -215,6 +234,73 @@
             transform: scale(1.1);
         }
 
+        /* Responsive Design - Mobile Friendly */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block; /* Stack menu items vertically */
+                padding: 10px 0;
+            }
+
+            /* Ensure homepage content is not hidden under the nav */
+            body {
+                margin-top: 90px; /* Adds margin to push content down */
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-top: 120px; /* Adjust for mobile view */
+            }
+
+            /* Adjust card layout for small screens */
+            #experience-cards {
+                flex-direction: column; /* Stack cards vertically on small screens */
+                gap: 10px;
+                justify-content: center; /* Center the cards */
+            }
+
+            .experience-card {
+                width: 80%; /* Make cards take more space on small screens */
+                margin: 10px auto;
+            }
+
+            .line-container {
+                width: 80%; /* Make the line container more flexible on small screens */
+            }
+
+            h3 {
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: 16px;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            h3 {
+                font-size: 14px;
+            }
+
+            #contact {
+                width: 90%;
+            }
+
+            .social-icon {
+                width: 35px;
+                height: 35px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -222,10 +308,11 @@
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#socials">Socials</a></li> 
         </ul>
     </nav>
-<br>
+    <br>
     <br>
     <h1>Homepage</h1>
     <br>
@@ -237,9 +324,43 @@
     </div>
     <h2 style="padding-right: 300px;">📚 | About me</h2>
     <br>
-    <h3>Hello! Welcome to my homepage. I am Yovel. <br> I like to play guitar and listen to music. I am a <br> student and a graphics designer.</h3>
+    <h3>Hello! Welcome to my homepage. I am yovel. <br> You can contact me by checking my socials. I am a <br> student who likes to play guitar. This is my website. <br> <br> I am an graphics designer and I have mentioned my <br> work experience in the Experience section. You can <br> contact me from the social medias in the socials tabs</h3>
     <br>
-<br>
+    <br>
+
+    <!-- Experience Section -->
+    <div id="experience">
+        <div class="line-container">
+            <hr>
+            <span>Experience</span>
+        </div>
+    </div>
+    <br>
+
+    <!-- Experience Cards Section (Cards in same row below experience) -->
+    <div id="experience-cards">
+        <!-- Experience Card 1 -->
+        <a href="https://notex.vercel.app" target="_blank">
+            <div class="experience-card notex-card">
+                <img src="icons/notex.png" alt="Notex Network Logo">
+                <h3>Notex Network | Discontinued</h3>
+                <p>@Head Designer</p>
+            </div>
+        </a>
+        <!-- Experience Card 2 -->
+        <a href="http://hyperlandsmc.net/" target="_blank">
+            <div class="experience-card">
+                <img src="icons/hl.png" alt="HyperlandsMC Logo">
+                <h3>HyperlandsMC | Discontinued</h3>
+                <p>@Designer</p>
+            </div>
+        </a>
+    </div>
+
+    <br>
+    <!-- Added Contact Message -->
+    <h3>Contact me for more information on my working experience.</h3>
+
     <!-- Socials Section -->
     <div id="socials">
         <div class="line-container">
@@ -264,7 +385,7 @@
             </a>
         </div>
     </div>
-<br>
+    <br>
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Yovel. All Rights Reserved.</p>
