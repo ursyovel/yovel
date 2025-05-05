@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experiences — yovel</title>
+  <link rel="icon" type="image/png" href="icons/experiences.png" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 3rem;
+      font-size: 1.1rem;
+    }
+
+    header div {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .main-content {
+      max-width: 80%;
+      padding: 2rem 3rem;
+      margin: auto;
+      animation: slideFromTop 0.8s ease-out;
+    }
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .header-row h1 {
+      font-size: 2.5rem;
+      color: black;
+    }
+
+    .description {
+      font-size: 1.2rem;
+      color: #444;
+      margin-bottom: 3rem;
+      max-width: 90%;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .card {
+      background: #fdfdfd;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+      padding: 2rem 2.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .card h2 {
+      margin: 0;
+      color: #610061;
+      font-size: 1.4rem;
+    }
+
+    .card ul {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .footer-text {
+      margin-top: 4rem;
+      font-size: 1.1rem;
+      color: #444;
+      text-align: center;
+    }
+
+    @keyframes slideFromTop {
+      0% {
+        transform: translateY(-80px) scale(0.95);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>yovel’s portfolio</div>
+    <nav>
+      <a href="index.html">home</a>
+      <a href="experiences.html">experiences</a>
+      <a href="info.html">info</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="header-row">
+      <h1>My Experiences</h1>
+    </div>
+
+    <p class="description">
+      I have worked and have experience dealing with graphics form of design for more than 4 years.
+      I have stated my journey in the “About” Section. Here are few of the projects that I am in
+      involved in or have been involved in.
+    </p>
+
+    <div class="cards">
+      <a class="card" href="https://notexmc.vercel.app/" target="_blank">
+        <img src="icons/notex.jpg" alt="Notex Network">
+        <h2>Notex Network | Discontinued</h2>
+        <ul>
+          <li>@ Head Designer</li>
+        </ul>
+      </a>
+
+      <a class="card" href="https://www.hyperlandsmc.net/" target="_blank">
+        <img src="icons/hyperlands.jpg" alt="Hyperlands MC">
+        <h2>Hyperlands MC | Discontinued</h2>
+        <ul>
+          <li>@ Designer</li>
+        </ul>
+      </a>
+
+      <a class="card" href="https://instagram.com/@ic_bishnu" target="_blank">
+        <img src="icons/rotary.jpg" alt="Interact Club">
+        <h2>Interact Club of Bishnu Memorial</h2>
+        <ul>
+          <li>@ IT Head (RY 2024-2025)</li>
+        </ul>
+      </a>
+    </div>
+
+    <p class="footer-text">
+      Feel free to dm me anytime for more information about my past experiences.
+    </p>
+  </main>
+
+</body>
+</html>
