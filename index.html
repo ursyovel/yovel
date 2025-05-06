@@ -153,6 +153,64 @@
       animation-delay: 6s;
     }
 
+    /* Cards Section */
+    hr {
+      margin: 60px auto 20px;
+      width: 80%;
+      border: none;
+      border-top: 2px solid #ccc;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 22px;
+      color: #666;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .card, .project-link {
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      width: 280px;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .card .tag {
+      font-size: 16px;
+      color: #999;
+    }
+
+    .project-link:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+
     /* Animations */
     @keyframes slideInLeft {
       0% {
@@ -261,6 +319,17 @@
       <div class="hero-tags">design. code. explore.</div>
       <div class="designer-label">designer</div>
     </div>
+  </div>
+
+  <hr />
+  <div class="section-title">SOME OF MY LATEST WORK</div>
+  <div class="cards-container">
+    <a href="https://zerosuki.vercel.app/" target="_blank" class="card project-link">
+      <img src="icons/zerosuki.png" alt="ZeroSuki project" />
+      <h3>ZeroSuki</h3>
+      <p class="tag">A text to speech web app.</p>
+    </a>
+    <!-- You can add more cards here similarly -->
   </div>
 </body>
 </html>
