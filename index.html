@@ -153,7 +153,6 @@
       animation-delay: 6s;
     }
 
-    /* Cards Section */
     hr {
       margin: 60px auto 20px;
       width: 80%;
@@ -184,10 +183,12 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       width: 280px;
       text-align: left;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-decoration: none;
       color: inherit;
       display: block;
+      transform: translateY(40px);
+      opacity: 0;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
     .card img {
@@ -207,11 +208,37 @@
     }
 
     .project-link:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+      animation: cardHover 0.6s ease forwards;
     }
 
     /* Animations */
+    @keyframes cardHover {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+      100% {
+        transform: scale(1.05);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     @keyframes slideInLeft {
       0% {
         transform: translateX(-100px);
@@ -223,26 +250,14 @@
       }
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      0% {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
     @keyframes typing {
       0% { width: 0 }
       50% { width: 220px }
       100% { width: 0 }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 1.2s ease-out forwards;
     }
 
     @media (max-width: 768px) {
@@ -329,7 +344,22 @@
       <h3>ZeroSuki</h3>
       <p class="tag">A text to speech web app.</p>
     </a>
-    <!-- You can add more cards here similarly -->
+    <!-- Add more cards here if needed -->
   </div>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-up');
+          observer.unobserve(entry.target); // Remove once animated
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
 </body>
 </html>
