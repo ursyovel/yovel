@@ -70,6 +70,7 @@
       font-size: 70px;
       font-family: Arial, sans-serif;
       transform: translateY(-10px);
+      user-select: none;
     }
 
     .y-letter {
@@ -78,6 +79,38 @@
 
     .rest-name {
       color: deeppink;
+    }
+
+    /* Coming Soon style with animations */
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 8px 2px deeppink;
+        background-color: deeppink;
+      }
+      50% {
+        box-shadow: 0 0 20px 6px #ff66cc;
+        background-color: #e600b8;
+      }
+    }
+
+    @keyframes scaleBounce {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    .coming {
+      background-color: deeppink;
+      color: white;
+      padding: 0 20px;
+      line-height: 70px;
+      font-family: Arial, sans-serif;
+      user-select: none;
+      display: inline-block;
+      animation: pulseGlow 2.5s ease-in-out infinite, scaleBounce 2.5s ease-in-out infinite;
     }
 
     .description {
@@ -166,61 +199,6 @@
       color: #666;
       margin-bottom: 30px;
       letter-spacing: 2px;
-    }
-
-    .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .card, .project-link {
-      background: #fff;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      width: 280px;
-      text-align: left;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      transform: translateY(40px);
-      opacity: 0;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 12px;
-    }
-
-    .card h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .card .tag {
-      font-size: 16px;
-      color: #999;
-    }
-
-    .project-link:hover {
-      animation: cardHover 0.6s ease forwards;
-    }
-
-    /* Animations */
-    @keyframes cardHover {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      }
-      100% {
-        transform: scale(1.05);
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
-      }
     }
 
     @keyframes fadeInUp {
@@ -338,28 +316,16 @@
 
   <hr />
   <div class="section-title">SOME OF MY LATEST WORK</div>
-  <div class="cards-container">
-    <a href="https://zerosuki.vercel.app/" target="_blank" class="card project-link">
-      <img src="icons/zerosuki.png" alt="ZeroSuki project" />
-      <h3>ZeroSuki</h3>
-      <p class="tag">A text to speech web app.</p>
-    </a>
-    <!-- Add more cards here if needed -->
+  <!-- Coming Soon section -->
+  <div class="hero" style="justify-content: center;">
+    <div class="intro-left" style="max-width: fit-content;">
+      <div class="intro-line" style="opacity:1; animation:none; justify-content:center;">
+        <span class="quotes">“</span><span class="coming">Coming Soon.</span><span class="quotes">”</span>
+      </div>
+    </div>
   </div>
-
-  <script>
-    const cards = document.querySelectorAll('.card');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in-up');
-          observer.unobserve(entry.target); // Remove once animated
-        }
-      });
-    }, { threshold: 0.1 });
-
-    cards.forEach(card => observer.observe(card));
-  </script>
+  <p style="text-align: center; font-size: 20px; margin-bottom: 30px;">
+    Currently no projects to show. (N/A)
+  </p>
 </body>
 </html>
